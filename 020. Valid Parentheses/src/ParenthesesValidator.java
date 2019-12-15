@@ -11,11 +11,10 @@ import java.util.Stack;
  * Note that an empty string is also considered valid.
  *
  * Example 1:
- *
  * Input: "()"
  * Output: true
- * Example 2:
  *
+ * Example 2:
  * Input: "()[]{}"
  * Output: true</p>
  */
