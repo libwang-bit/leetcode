@@ -1,6 +1,6 @@
 ## 删除单向链表的倒数第 n 个节点
 (https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
-```aidl
+```
 描述：
 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
 
@@ -19,7 +19,7 @@
 
 
 Java 代码:
-```aidl
+```
 /**
  * Definition for singly-linked list.
  * public class ListNode {
