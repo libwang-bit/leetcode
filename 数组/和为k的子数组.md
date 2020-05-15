@@ -17,7 +17,7 @@
 分析:
 采用累计求和的方法 求数组 [a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>……, a<sub>n-1</sub>, a<sub>n</sub> ] 中 和为 S 的子数组。
 
-我们定义 S<sub>i</sub> = $\sum_{i=0}^n {a_i}$, 
+我们定义 S<sub>i</sub> = $\sum_{0}^n {a_i}$, 
 
 如果 S<sub>i</sub> - S = S<sub>k</sub> (0<=k<=i),
 我们可以得到一个包含 a<sub>i</sub> 的子数组 [a<sub>k+1</sub>, a<sub>k+2</sub>, ……, a<sub>i</sub>] , 其和等于S。
