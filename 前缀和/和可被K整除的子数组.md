@@ -22,7 +22,7 @@
 
 解答:
 ```
-题目是要在数组中找到这样一组数(i, j) i <= j <= n, 满足 (s[j] - s[i]) % k == 0. s[i] 表示 
+题目是要在数组中找到这样一组数(i, j) i <= j <= n, 满足 (s[j] - s[i]) % k == 0. s[i] 表示 包含 i 在内前i项和.
 根据同余定理，也就是要满足 s[j] % k == s[j] % k;
 我们利用hash表 + 前缀和的方式，可以将时间复杂度降低到o(n).
 
@@ -32,10 +32,10 @@ hash key存储的是 sum[i] % k, sum[i] 表示以 nums[i] 为结尾的元素和�
 
 有两点需要注意, 
 a) 初始化: map.put(0, 1); 比如 nums = [4], k = 4, count = 1;
-b) sum[j] 可能为负， 要纠正 (sum[j] % k + k) % k. 比如 [-1, 4], k = 4, count = 1:
+b) sum[j] 可能为负, 要纠正 (sum[j] % k + k) % k. 比如 [-1, 4], k = 4, count = 1:
 -1 % 4 = -1; 
 3 % 4 = 3;
-但其实 3 - (-1) = 4， 可以被4整除.
+但其实 3 - (-1) = 4, 可以被4整除.
 ```
 
 Java代码:
@@ -49,7 +49,7 @@ class Solution {
         int sum = 0;
         for(int i = 0; i < A.length; i++) {
             sum = sum + A[i];
-            int res = (sum % K + K) % K; // 纠正sum为负的情况 [-1, 3] k = 4 
+            int res = (sum % K + K) % K; // 纠正sum为负的情况 [-1, 4] k = 4 
             count += map.getOrDefault(res,0);
             map.put(res, map.getOrDefault(res, 0) + 1);
         }
