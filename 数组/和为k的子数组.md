@@ -1,5 +1,5 @@
 ## 和为k 的子数组
-(https://leetcode-cn.com/problems/subarray-sum-equals-k)
+[https://leetcode-cn.com/problems/subarray-sum-equals-k](https://leetcode-cn.com/problems/subarray-sum-equals-k)
 
 描述:
 ```

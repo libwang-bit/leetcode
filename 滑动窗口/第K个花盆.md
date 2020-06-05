@@ -1,5 +1,5 @@
 ## 第K个花盆
-(https://leetcode-cn.com/problems/k-empty-slots)
+[https://leetcode-cn.com/problems/k-empty-slots](https://leetcode-cn.com/problems/k-empty-slots)
 
 描述:
 ```
