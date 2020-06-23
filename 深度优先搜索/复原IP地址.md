@@ -13,7 +13,7 @@ Java 代码:
 class Solution {
     public List<String> restoreIpAddresses(String s) {
         List<String> result = new ArrayList<>();
-        if (s == null || s.length() == 0) {
+        if (s == null || s.length() < 4) {
             return result;
         }
 
@@ -21,22 +21,30 @@ class Solution {
         return result;
     }
 
-    private void dfs(String s, String temp, int index, int cnt, List<String> result) {
-        if(cnt == 0) {
-            if (index == s.length()) {
-                result.add(temp.substring(0, temp.length() - 1));
+    private void dfs(String origin, String dest, int index, int cnt, List<String> result) {
+        if (cnt == 0) {
+            if (origin.length() == index) {
+                result.add(dest.substring(0, dest.length() - 1));
+                return;
+            } else {
                 return;
             }
-            return;
         }
 
-        for (int i = index; i < index + 3 && i < s.length(); i++) {
-            String subStr = s.substring(index, i + 1);
-            int num = Integer.parseInt(subStr);
-            if (num > 255) continue;
-            dfs(s, temp + s.substring(index, i + 1) + ".", i + 1, cnt - 1, result);
-            if (s.charAt(index) == '0') break;
+        for (int i = 1; i < 4 && index + i <= origin.length(); i++) {
+            String temp = origin.substring(index, index + i); // 截取从index下标开始, 长度为i（ 1<=i<= 3）的子串.
+            // 如果超过 255, 不满足条件
+            if (Integer.valueOf(temp) > 255) {
+                continue;
+            }
+            // 保存子串, 下标加i, 次数消耗一次
+            dfs(origin, dest + temp + ".", index + i, cnt - 1, result);
+            // 0打头的只能出现在第一个ip段内. 其他段要终止.
+            if (origin.charAt(index) == '0') {
+                break;
+            }
         }
+
     }
 }
 ```
