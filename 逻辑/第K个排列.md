@@ -43,10 +43,9 @@ class Solution {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, 1);
         List<Integer> list = new ArrayList<>();
-        list.add(1);
 
         int mul = 1;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             mul = mul * i;
             map.put(i, mul);
             list.add(i);
@@ -55,7 +54,7 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         for (int i = n-1; i > -1; i--) {
             int value = k / map.get(i);
-            
+
             sb.append(list.get(value));
 
             k = k - map.get(i) * value;
